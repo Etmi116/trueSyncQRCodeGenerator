@@ -1,0 +1,69 @@
+html, body{
+    height:100%;
+    margin:0;
+    padding:0;
+    background-color: lightgray;
+}
+
+body{
+    border: 10px solid lightgray;
+}
+
+.bodybox {
+    border-top-left-radius: 25px;
+    width: 100%;
+    height:100%;
+    background-color: white;
+    padding: 20px;
+}
+
+.blueButton {
+    background-color:blue;
+    color:white;
+    width:50%;
+    font-size: large;
+}
+
+.redButton {
+  background-color:red;
+  color:white;
+  width:25%;
+  font-size: large;
+}
+
+.column {
+    float: left;
+    width: 50%;
+  }
+
+  .columnB {
+    float: left;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding-bottom: 5%;
+  }
+
+  .row-border:after {
+    content: "";
+    display: table;
+    clear: both;
+    border: 12px black;
+  }
+
+  .errorMessage {
+    color:blue;
+  }
+
+.dropdown {
+    width: 100%;
+}
+
+.wide-text-input{
+  width:80%;
+  font-size: large;
+}

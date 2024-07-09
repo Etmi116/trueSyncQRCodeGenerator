@@ -12,12 +12,13 @@ class processQRImage implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $path;
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct($pathTo)
     {
-        //
+        $this->path = $pathTo;
     }
 
     /**
@@ -25,6 +26,6 @@ class processQRImage implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        unlink($this->path);
     }
 }

@@ -14,6 +14,10 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Generate</button>
         </form>
+        <div class='text-center'>
+            <h2>{{$title}}</h2>
+            <img src='{{$path}}' width='300' height ='300'>
+        </div>
     </div>
 
     

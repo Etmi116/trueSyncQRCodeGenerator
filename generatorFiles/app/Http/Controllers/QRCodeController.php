@@ -15,7 +15,7 @@ class QRCodeController extends Controller
 {
     public function index()
     {
-        return view('generator',['path' => 'images\bearchillin.jpg']);
+        return view('generator');
     }
 
     public function generate(Request $request)
@@ -25,23 +25,22 @@ class QRCodeController extends Controller
             'url' => 'required|url|max:255',
         ]);
 
-        $qrcode = QRCode::create([
+        $qrObj = QRCode::create([
             'title' => $request->title,
             'url' => $request->url,
         ]);
 
-        $qrCode = new EndroidQrCode(route('scan', $qrcode->id)); // Point QR code to scan route
+        $qrImg = new EndroidQrCode(route('scan', $qrObj->id)); // Point QR code to scan route
         $writer = new PngWriter();
 
-        $result = $writer->write($qrCode);
+        $result = $writer->write($qrImg);
 
-        $filename = 'qrcode-' . $qrcode->id . '.png';
-        $filePath = 'qrcodes/' . $filename;
-        //$qrcode->storePath($filePath);//updates file path in db
-        $result->saveToFile($filePath);//saves file to public.
-        //will need to shift to app's public file
+        $filename = 'qrcode-' . $qrObj->id . '.png';
+        $filePath = public_path('qrcodes/' . $filename);
+        file_put_contents($filePath, $result->getString());//puts contents in public folder temporarily
 
-        return view('generator',['path' => $filePath]);//returns back to main page
+        return response()->file($filePath)->deleteFileAfterSend();//displays image in browser
+        //return redirect('/')->flash('gg');
     }
 
     public function scan($id)

@@ -3,6 +3,7 @@
     <h1>QR Code Generator</h1>
     <div class ="container mt-5">
         <!-- form for the generate qr code function in QRCodeController -->
+         <!-- if statement to display either the edit form or generate form -->
          @if(isset($id))
             <p>This is a test</p>
             <p>{{$id}}</p>

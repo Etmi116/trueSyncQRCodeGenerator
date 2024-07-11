@@ -11,6 +11,7 @@
             </tr>
         </thead>
         <tbody>
+            <!-- cycles through the data provided by the controller to display QR codes -->
             @foreach ($data as $row)
                 <tr>
                     <td>{{$row->title}}</td>

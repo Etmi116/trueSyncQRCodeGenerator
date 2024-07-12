@@ -12,7 +12,6 @@ class homeController extends Controller
     }
 
     public function menu(){
-        $data = QRCode::all();
-        return view('menu',['data'=>$data]);
+        return view('menu');
     }
 }
